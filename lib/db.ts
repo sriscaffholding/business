@@ -1,62 +1,93 @@
-import fs from 'fs';
-import path from 'path';
-import type { ScaffoldingItem } from '@/types';
+import { Pool } from 'pg';
+import type { ScaffoldingItem, ScaffoldingType } from '@/types';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
-const DATA_FILE = path.join(DATA_DIR, 'items.json');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
+});
 
-function ensureDataFile(): void {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-  if (!fs.existsSync(DATA_FILE)) {
-    fs.writeFileSync(DATA_FILE, JSON.stringify([], null, 2), 'utf-8');
-  }
+export async function initDB() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS items (
+      id TEXT PRIMARY KEY,
+      type TEXT NOT NULL,
+      description TEXT NOT NULL,
+      image TEXT NOT NULL,
+      created_at TEXT NOT NULL
+    )
+  `);
 }
 
-export function getItems(): ScaffoldingItem[] {
-  ensureDataFile();
-  try {
-    const raw = fs.readFileSync(DATA_FILE, 'utf-8');
-    return JSON.parse(raw) as ScaffoldingItem[];
-  } catch {
-    return [];
-  }
+export async function getItems(): Promise<ScaffoldingItem[]> {
+  await initDB();
+  const result = await pool.query('SELECT * FROM items ORDER BY created_at DESC');
+  return result.rows.map((row) => ({
+    id: row.id,
+    type: row.type as ScaffoldingType,
+    description: row.description,
+    image: row.image,
+    createdAt: row.created_at,
+  }));
 }
 
-export function saveItems(items: ScaffoldingItem[]): void {
-  ensureDataFile();
-  fs.writeFileSync(DATA_FILE, JSON.stringify(items, null, 2), 'utf-8');
-}
-
-export function addItem(item: ScaffoldingItem): ScaffoldingItem {
-  const items = getItems();
-  items.unshift(item);
-  saveItems(items);
+export async function addItem(item: ScaffoldingItem): Promise<ScaffoldingItem> {
+  await initDB();
+  await pool.query(
+    'INSERT INTO items (id, type, description, image, created_at) VALUES ($1, $2, $3, $4, $5)',
+    [item.id, item.type, item.description, item.image, item.createdAt]
+  );
   return item;
 }
 
-export function deleteItem(id: string): boolean {
-  const items = getItems();
-  const filtered = items.filter((i) => i.id !== id);
-  if (filtered.length === items.length) return false;
-  saveItems(filtered);
-  return true;
+export async function deleteItem(id: string): Promise<boolean> {
+  await initDB();
+  const result = await pool.query('DELETE FROM items WHERE id = $1', [id]);
+  return (result.rowCount ?? 0) > 0;
 }
 
-export function updateItem(
+export async function updateItem(
   id: string,
   updates: Partial<Pick<ScaffoldingItem, 'description' | 'type'>>
-): ScaffoldingItem | null {
-  const items = getItems();
-  const idx = items.findIndex((i) => i.id === id);
-  if (idx === -1) return null;
-  items[idx] = { ...items[idx], ...updates };
-  saveItems(items);
-  return items[idx];
+): Promise<ScaffoldingItem | null> {
+  await initDB();
+  const fields: string[] = [];
+  const values: string[] = [];
+  let i = 1;
+  if (updates.description !== undefined) {
+    fields.push(`description = $${i++}`);
+    values.push(updates.description);
+  }
+  if (updates.type !== undefined) {
+    fields.push(`type = $${i++}`);
+    values.push(updates.type);
+  }
+  if (fields.length === 0) return null;
+  values.push(id);
+  const result = await pool.query(
+    `UPDATE items SET ${fields.join(', ')} WHERE id = $${i} RETURNING *`,
+    values
+  );
+  if (result.rows.length === 0) return null;
+  const row = result.rows[0];
+  return {
+    id: row.id,
+    type: row.type as ScaffoldingType,
+    description: row.description,
+    image: row.image,
+    createdAt: row.created_at,
+  };
 }
 
-export function getItemById(id: string): ScaffoldingItem | null {
-  const items = getItems();
-  return items.find((i) => i.id === id) ?? null;
+export async function getItemById(id: string): Promise<ScaffoldingItem | null> {
+  await initDB();
+  const result = await pool.query('SELECT * FROM items WHERE id = $1', [id]);
+  if (result.rows.length === 0) return null;
+  const row = result.rows[0];
+  return {
+    id: row.id,
+    type: row.type as ScaffoldingType,
+    description: row.description,
+    image: row.image,
+    createdAt: row.created_at,
+  };
 }

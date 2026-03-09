@@ -121,7 +121,7 @@ export default function GalleryGrid() {
                   <div className="absolute inset-0 shimmer" />
                 )}
                 <img
-  src={`/uploads/${item.image}`}
+src={item.image}
   alt={item.description}
   className={`absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
     imgLoaded[item.id] ? 'opacity-100' : 'opacity-0'

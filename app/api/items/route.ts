@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
-    const items = getItems();
+    const items = await getItems();
     return NextResponse.json({ items }, { status: 200 });
   } catch (error) {
     console.error('[GET /api/items]', error);

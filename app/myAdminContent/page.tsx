@@ -366,7 +366,7 @@ export default function AdminPage() {
                     {/* Thumb */}
                     <div className="relative w-20 h-20 shrink-0 bg-dark-900 overflow-hidden">
                       <img
-  src={`/uploads/${item.image}`}
+src={item.image}
   alt={item.description}
   className="absolute inset-0 w-full h-full object-cover"
 />

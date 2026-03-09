@@ -53,8 +53,7 @@ export default function ImageModal({ item, onClose }: ImageModalProps) {
         {/* Image */}
         <div className="relative aspect-[16/9] bg-dark-900">
           <img
-  src={`/uploads/${item.image}`}
-  alt={item.description}
+src={item.image}  alt={item.description}
   className="absolute inset-0 w-full h-full object-contain"
 />
         </div>
