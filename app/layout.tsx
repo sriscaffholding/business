@@ -3,6 +3,7 @@ import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Analytics } from "@vercel/analytics/next"
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -149,6 +150,7 @@ export default function RootLayout({
         )}
         <Navbar />
         <main>{children}</main>
+        <Analytics />
         <Footer />
       </body>
     </html>
