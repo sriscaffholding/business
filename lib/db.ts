@@ -2,8 +2,10 @@ import { Pool } from 'pg';
 import type { ScaffoldingItem, ScaffoldingType } from '@/types';
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+connectionString: process.env.DATABASE_URL,
+  ssl: process.env.DATABASE_URL?.includes('railway.internal')
+    ? false
+    : { rejectUnauthorized: false },
 });
 
 export async function initDB() {
