@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import type { ScaffoldingItem } from '@/types';
 import { TYPE_LABELS } from '@/types';
 
@@ -53,13 +52,11 @@ export default function ImageModal({ item, onClose }: ImageModalProps) {
 
         {/* Image */}
         <div className="relative aspect-[16/9] bg-dark-900">
-          <Image
-            src={`/uploads/${item.image}`}
-            alt={item.description}
-            fill
-            className="object-contain"
-            sizes="(max-width: 768px) 100vw, 80vw"
-          />
+          <img
+  src={`/uploads/${item.image}`}
+  alt={item.description}
+  className="absolute inset-0 w-full h-full object-contain"
+/>
         </div>
 
         {/* Info */}

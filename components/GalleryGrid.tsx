@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import type { ScaffoldingItem, ScaffoldingType } from '@/types';
 import { TYPE_LABELS, ALL_TYPES } from '@/types';
 import { SkeletonGrid } from './SkeletonCard';
@@ -121,16 +120,14 @@ export default function GalleryGrid() {
                 {!imgLoaded[item.id] && (
                   <div className="absolute inset-0 shimmer" />
                 )}
-                <Image
-                  src={`/uploads/${item.image}`}
-                  alt={item.description}
-                  fill
-                  className={`object-cover group-hover:scale-105 transition-transform duration-500 ${
-                    imgLoaded[item.id] ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  onLoad={() => setImgLoaded((prev) => ({ ...prev, [item.id]: true }))}
-                />
+                <img
+  src={`/uploads/${item.image}`}
+  alt={item.description}
+  className={`absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
+    imgLoaded[item.id] ? 'opacity-100' : 'opacity-0'
+  }`}
+  onLoad={() => setImgLoaded((prev) => ({ ...prev, [item.id]: true }))}
+/>
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-amber-500/0 group-hover:bg-amber-500/10 transition-colors duration-300" />
                 {/* Expand icon */}

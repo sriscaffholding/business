@@ -365,13 +365,11 @@ export default function AdminPage() {
                   >
                     {/* Thumb */}
                     <div className="relative w-20 h-20 shrink-0 bg-dark-900 overflow-hidden">
-                      <Image
-                        src={`/uploads/${item.image}`}
-                        alt={item.description}
-                        fill
-                        className="object-cover"
-                        sizes="80px"
-                      />
+                      <img
+  src={`/uploads/${item.image}`}
+  alt={item.description}
+  className="absolute inset-0 w-full h-full object-cover"
+/>
                     </div>
                     {/* Info */}
                     <div className="flex-1 min-w-0">
