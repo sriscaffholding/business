@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 1200px; height: 630px; background: #0A0A0A; display: flex; align-items: center; padding: 60px; font-family: 'Bebas Neue', sans-serif; overflow: hidden; }
+    .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(245,158,11,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.05) 1px, transparent 1px); background-size: 60px 60px; }
+    .badge { background: #F59E0B; color: #0A0A0A; font-size: 18px; font-family: sans-serif; font-weight: 700; padding: 6px 16px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; display: inline-block; }
+    h1 { font-size: 96px; color: #FFFFFF; letter-spacing: 0.04em; line-height: 0.9; }
+    .amber { color: #F59E0B; }
+    .sub { font-size: 28px; color: #6B7280; letter-spacing: 0.2em; margin-top: 12px; }
+    .contact { position: absolute; bottom: 50px; right: 60px; text-align: right; }
+    .contact p { font-family: sans-serif; color: #9CA3AF; font-size: 18px; }
+    .contact .phone { color: #F59E0B; font-size: 22px; font-weight: 600; }
+    .bar { width: 6px; height: 200px; background: #F59E0B; position: absolute; right: 60px; top: 50%; transform: translateY(-50%); }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grid"></div>
+  <div style="position:relative;z-index:1">
+    <div class="badge">Professional Scaffolding Services</div>
+    <h1>SRI VARI<br><span class="amber">SCAFFOLDING</span></h1>
+    <div class="sub">WORKS — TAMIL NADU, INDIA</div>
+  </div>
+  <div class="contact" style="z-index:1">
+    <p>Founder & Chairman</p>
+    <p style="color:white;font-size:20px;font-weight:600">Saravanan</p>
+    <p class="phone" style="margin-top:8px">+91 86819 95581</p>
+    <p style="color:#6B7280;font-size:14px;margin-top:4px">sriscaffholding@gmail.com</p>
+  </div>
+  <div class="bar" style="z-index:1"></div>
+</body>
+</html>
+
+<!--
+  HOW TO CREATE og-image.png:
+  1. Open this file in a browser
+  2. Take a screenshot at exactly 1200x630 pixels
+  3. Save as /public/og-image.png
+  OR use an online tool like https://og-image.vercel.app
+-->

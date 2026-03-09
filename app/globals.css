@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-bebas: 'Bebas Neue', sans-serif;
+  --font-barlow: 'Barlow', sans-serif;
+  --amber: #F59E0B;
+  --amber-light: #FBBF24;
+  --black: #0A0A0A;
+  --dark: #111111;
+  --dark-card: #1A1A1A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--black);
+  color: #FAFAFA;
+  font-family: var(--font-barlow), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #F59E0B;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FBBF24;
+}
+
+/* Custom utilities */
+.font-display {
+  font-family: var(--font-bebas), sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.text-amber {
+  color: var(--amber);
+}
+
+.border-amber {
+  border-color: var(--amber);
+}
+
+/* Shimmer animation for skeleton */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 25%,
+    #2d2d2d 50%,
+    #1a1a1a 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Hero diagonal clip */
+.hero-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+/* Scaffold grid pattern */
+.scaffold-bg {
+  background-color: #0A0A0A;
+  background-image: 
+    linear-gradient(rgba(245, 158, 11, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 158, 11, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Card hover effect */
+.gallery-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
+}
+
+/* Filter button active state */
+.filter-btn {
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+.filter-btn.active {
+  border-color: #F59E0B;
+  background-color: #F59E0B;
+  color: #0A0A0A;
+}
+.filter-btn:not(.active):hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #F59E0B;
+}
+
+/* Modal backdrop blur */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}

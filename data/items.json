@@ -1,0 +1,16 @@
+[
+  {
+    "id": "89b5b632-41c6-42d2-adf9-4a55b9b30f7d",
+    "type": "single-scaffolding",
+    "description": "ijobkb",
+    "image": "6aeb21af-5870-498d-bd31-7b6e45d89bf2.jpg",
+    "createdAt": "2026-03-09T06:25:55.885Z"
+  },
+  {
+    "id": "18cd65d9-b5dd-49d6-a0a3-3ad297a145ed",
+    "type": "wheel-ladder",
+    "description": "Indistry",
+    "image": "d91de909-56f9-46ba-a384-85d8c9f38fee.jpg",
+    "createdAt": "2026-03-09T06:24:46.753Z"
+  }
+]
