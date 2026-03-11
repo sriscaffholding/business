@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/next"
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://srivarisacffolding.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://srivariscaffoldingworks.com'),
   title: {
     default: 'Sri Vari Scaffolding Works | Professional Scaffolding Services in Chennai',
     template: '%s | Sri Vari Scaffolding Works',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://srivariscaffolding.com',
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://srivariscaffoldingworks.com',
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
