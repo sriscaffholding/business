@@ -122,6 +122,60 @@ export default function ContactPage() {
             </a>
           </div>
 
+          {/* Managers Section */}
+          <div className="mb-8">
+            <p className="text-amber-500 font-display tracking-[0.3em] text-sm mb-4">LEADERSHIP</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+              {/* Manager – Hariharan S */}
+              <div className="bg-dark-700 border border-dark-500 p-6 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-amber-500/50" />
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-amber-500/20 flex items-center justify-center font-display text-amber-500 text-xl shrink-0">
+                    H
+                  </div>
+                  <div>
+                    <p className="text-amber-500 text-xs font-display tracking-widest mb-0.5">MANAGING DIRECTOR</p>
+                    <p className="text-white font-display text-lg tracking-wide">HARIHARAN S</p>
+                  </div>
+                </div>
+                <a
+                  href="tel:+919789011922"
+                  className="group flex items-center gap-3 hover:opacity-80 transition-opacity"
+                >
+                  <svg className="w-4 h-4 text-amber-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="text-white font-body font-medium">+91 97890 11922</span>
+                </a>
+              </div>
+
+              {/* Manager – Kishore S */}
+              <div className="bg-dark-700 border border-dark-500 p-6 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full bg-amber-500/50" />
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-amber-500/20 flex items-center justify-center font-display text-amber-500 text-xl shrink-0">
+                    K
+                  </div>
+                  <div>
+                    <p className="text-amber-500 text-xs font-display tracking-widest mb-0.5">DIRECTOR – OPERATIONS / COO</p>
+                    <p className="text-white font-display text-lg tracking-wide">KISHORE S</p>
+                  </div>
+                </div>
+                <a
+                  href="tel:+917358300218"
+                  className="group flex items-center gap-3 hover:opacity-80 transition-opacity"
+                >
+                  <svg className="w-4 h-4 text-amber-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="text-white font-body font-medium">+91 73583 00218</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
           {/* Address */}
           <div className="bg-dark-700 border border-dark-500 p-8">
             <div className="flex items-start gap-5">
@@ -134,14 +188,12 @@ export default function ContactPage() {
               <div>
                 <p className="text-amber-500 font-display tracking-[0.3em] text-sm mb-1">OUR ADDRESS</p>
                 <div className="text-gray-300 leading-loose">
-                  {/* EDITABLE PLACEHOLDER – Replace with real address */}
                   <p className="font-medium text-white">Sri Vari Scaffolding Works</p>
-<p>78, Kanniamman Nagar Road,</p>
-<p>Samuel Nagar, Vadaperumbakkam,</p>
-<p>Chennai – 600060,</p>
-<p>Tamil Nadu, India.</p>
+                  <p>78, Kanniamman Nagar Road,</p>
+                  <p>Samuel Nagar, Vadaperumbakkam,</p>
+                  <p>Chennai – 600060,</p>
+                  <p>Tamil Nadu, India.</p>
                 </div>
-                
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import GalleryGrid from '@/components/GalleryGrid';
 
 export const metadata: Metadata = {
-  title: 'Home | Sri Vari Scaffolding Works – Professional Scaffolding Services',
+  title: 'Sri Vari Scaffolding Works – Professional Scaffolding Services | Tamil Nadu',
   description:
     'Browse our complete gallery of scaffolding projects – wheel ladders, single scaffolding, double scaffolding. Trusted by construction professionals across Tamil Nadu. Call 8681995581.',
 };

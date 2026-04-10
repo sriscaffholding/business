@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://srivariscaffolding.com',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://srivariscaffoldingworks.com',
     siteName: 'Sri Vari Scaffolding Works',
     title: 'Sri Vari Scaffolding Works | Professional Scaffolding Services',
     description:
@@ -101,7 +101,7 @@ export default function RootLayout({
               name: 'Sri Vari Scaffolding Works',
               description:
                 'Professional scaffolding services including wheel ladders, single and double scaffolding across Tamil Nadu, India.',
-              url: process.env.NEXT_PUBLIC_SITE_URL || 'https://srivariscaffolding.com',
+              url: process.env.NEXT_PUBLIC_SITE_URL || 'https://srivariscaffoldingworks.com',
               telephone: ['+918681995581', '+919840481409'],
               email: 'sriscaffholding@gmail.com',
               founder: { '@type': 'Person', name: 'Saravanan' },
